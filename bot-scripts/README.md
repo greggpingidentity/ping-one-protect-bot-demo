@@ -15,7 +15,8 @@ Run either the login or registration bots from the command line:
 
 ```code
 node dv-login-bot.js
-
+```
+```code
 node dv-registration-bot.js
 ```
 
@@ -27,7 +28,8 @@ In the command line, navigate to the `sdk-sample-app` directory and run:
 
 ```code
 npm install
-
+```
+```code
 npm start
 ```
 
