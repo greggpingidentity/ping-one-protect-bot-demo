@@ -3,7 +3,7 @@
 ## Use Case 
 These bot scripts demonstrate PingOne Protect's threat detection capabilities.
 
-## Pre-Requesites
+## Prerequisites
 From the `bot-scripts` directory run the following command to install node dependencies
 
 ```code
