@@ -2,6 +2,7 @@
 
 ## Use Case 
 These bot scripts demonstrate PingOne Protect's threat detection capabilities.
+You should be able to authenticate normally against an instance of these applications however 
 
 ## Prerequisites
 From the `bot-scripts` directory run the following command to install node dependencies
