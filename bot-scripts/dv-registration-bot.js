@@ -1,6 +1,5 @@
 //PROTECT APP LOCATION
 //--Perform Bot Attack against shared glitch application
-// const baseUrl = 'https://cprice-p1-protect.ping-devops.com'
 const baseUrl = 'https://soaring-orchestrated-skies.glitch.me'
 //--Perform Bot Attack against local deployment of PingOne Protect Application
 // const baseUrl = 'http://localhost:3000'
@@ -21,17 +20,13 @@ const puppeteer = require('puppeteer-extra')
 
 // Add stealth plugin and use defaults 
 const pluginStealth = require('puppeteer-extra-plugin-stealth')
-
 const stealth = pluginStealth()
 const { executablePath } = require('puppeteer');
-
-
 
 //stealth.enabledEvasions.delete('user-agent-override')
 console.log(stealth.availableEvasions);
 puppeteer.use(stealth)
 
-/*
 // Stealth plugins are just regular `puppeteer-extra` plugins and can be added as such
 const UserAgentOverride = require('puppeteer-extra-plugin-stealth/evasions/user-agent-override')
 // Define custom UA and locale
@@ -40,12 +35,6 @@ const ua = UserAgentOverride({
   locale: 'de-DE,de'
 })
 puppeteer.use(ua)
-*/
-
-
-
-
-
 
 puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-blink-features=AutomationControlled', '--disable-web-security', '--disable-xss-auditor'], executablePath: browserExecutablePath }).then(async browser => {
   //browser new page
@@ -56,12 +45,10 @@ puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-blink-feat
   await p.setBypassCSP(true);
 
   //launch URL
-  // await p.goto(baseUrl+'/oidc.html')
   await p.goto(baseUrl)
   console.log("timeout started")
   await p.waitForTimeout(3000)
   console.log("timeout ended")
-  //await p.goto('http://localhost:3000/oidc.html')
 
   //const cursor = myCursor.createCursor(p)
   await p.click('#registerButton');
@@ -74,36 +61,24 @@ puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-blink-feat
   var randomnumber = Math.floor(Math.random() * (99999 - 100 + 1)) + 100;
   console.log(randomnumber)
 
-  var randomemail = "remyremyremy" + randomnumber + "@example.com";
+  var randomemail = "ggg" + randomnumber + "@example.com";
   console.log(randomemail)
 
-
-  // await p.click('#btnSignIn');
-  // console.log("clicked signIn");
-
   await p.waitForTimeout(3000)
-
   await p.type('input[id="email"]', randomemail);
-
   await p.waitForSelector('input[id="firstName"]');
-  await p.type('input[id="firstName"]', 'Remy')
+  await p.type('input[id="firstName"]', 'GGG')
   console.log("put in first name");
-
   await p.waitForSelector('input[id="lastName"]');
   await p.type('input[id="lastName"]', 'BotTest')
   console.log("put in last name");
-
   await p.waitForSelector('input[id="password"]');
   await p.type('input[id="password"]', 'botP@ssword1')
   console.log("put in password");
-
   await p.click('#submitBtn');
   console.log("clicked submitRegistration");
-
   await p.waitForTimeout(6000)
-
   const n = await p.$("#access-token")
-  //const t = await (await n.getProperty('textContent')).jsonValue()
 
   if (n) {
     const t = await (await n.getProperty('textContent')).jsonValue()
@@ -115,8 +90,6 @@ puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-blink-feat
     console.log(text)
   }
 
-
   await browser.close();
-
 })
 

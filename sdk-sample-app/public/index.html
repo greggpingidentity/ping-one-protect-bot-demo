@@ -4,20 +4,20 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <link id="favicon" rel="icon" type="image/png" href="./images/favicon.png">
-  <link id="apple-touch-icon" rel="apple-touch-icon" href="./images/apple-touch-icon-192.png">
+  <link id="favicon" rel="icon" type="image/png" href="images/favicon.png">
+  <link id="apple-touch-icon" rel="apple-touch-icon" href="images/apple-touch-icon-192.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BXFinance</title>
 
-  <link rel="stylesheet" href="./css/bxi-styles.css">
-  <link rel="manifest" href="./assets/manifest.json">
+  <link rel="stylesheet" href="css/bxi-styles.css">
+  <link rel="manifest" href="assets/manifest.json">
 
-  <link rel="stylesheet" href="./css/start_style.css">
+  <link rel="stylesheet" href="css/start_style.css">
 
-  <link href="./css/bootstrap.min.css" rel="stylesheet"
+  <link href="css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <script src="./js/bootstrap.bundle.min.js"
+  <script src="js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
   <style>
@@ -82,7 +82,7 @@
             </li>
           </ul>
           <a id="bxi-logo" class="navbar-brand mt-1 mt-xl-0 py-0 ms-3 ms-lg-0">
-            <img src="./images/logo.svg" alt="Logo">
+            <img src="images/logo.svg" alt="Logo">
           </a>
         </div>
         <div class="d-none d-xl-block flex-grow-1 ms-3">
@@ -134,53 +134,128 @@
               <form id="usernameForm">
                 <br />
                 <div class="mb-3">
-                <h4 for="username" class="form-label mb-1">Username</h4>
-                <input required type="text" id="username" name="username" />
+                  <h4 for="username" class="form-label mb-1">Username</h4>
+                  <input required type="text" id="username" name="username" />
                 </div>
                 <br />
                 <div class="mb-3">
-                <h4 for="password" class="form-label mb-1">Password</h4>
-                <input type="password" id="password" name="password" />
-                </div> 
+                  <h4 for="password" class="form-label mb-1">Password</h4>
+                  <input type="password" id="password" name="password" />
+                </div>
                 <br />
-                <button type="submit" class="button-link bxi-button bxi-button--white bxi-button--lg" style="display: none;" id="authenticate">Authenticate</button>
+                <button type="submit" class="button-link bxi-button bxi-button--white bxi-button--lg"
+                  style="display: none;" id="authenticate">Authenticate</button>
               </form>
-              <button id="newRiskEvaluation" class="button-link bxi-button bxi-button--md" style="display: none;" onclick="window.location.assign('/')">New Protect Evaluation</button>
-            </div>
-            <div id="results-tabs" style="display: none;" class="tab-container">
-              <!-- Tab links -->
-              <div class="tab">
-                <button class="tab-btn active bxi-button bxi-button--md" onclick="changeTabs(event, 'show-tab')">Show</button>
-                <button class="tab-btn bxi-button bxi-button--md" onclick="changeTabs(event, 'result-tab')">Result</button>
-                <button class="tab-btn bxi-button bxi-button--md" onclick="changeTabs(event, 'details-tab')">Details</button>
-                <button class="tab-btn bxi-button bxi-button--md" onclick="changeTabs(event, 'full-response-tab')">Full Response</button>
-              </div>
-              <!-- Tab content -->
-              <div id="show-tab" class="tab-content active" style="display: block">
-                <p id="show"></p>
-              </div>
-              <div id="result-tab" class="tab-content">
-                <p id="result"></p>
-              </div>
-              <div id="details-tab" class="tab-content">
-                <p id="details"></p>
-              </div>
-              <div id="full-response-tab" class="tab-content">
-                <p id="full-response"></p>
-              </div>
             </div>
           </section>
         </div>
         <div id="shine" class="col-xl-4 col-md-6">
           <div class="rewards-card-pill-lg position-relative rounded-pill pb-4">
-            <img class="rewards-card-image d-block position-absolute" src="./images/rewards-card.png">
+            <img class="rewards-card-image d-block position-absolute" src="images/rewards-card.png">
             <h4 class="rewards-card-color">Meet SHINE.</h4>
-            <p class="rewards-card-color fs-7 rewards-card-subtitle">It's a new standard of credit card. Amazing rewards. Remarkable rates.</p>
+            <p class="rewards-card-color fs-7 rewards-card-subtitle">It's a new standard of credit card. Amazing rewards.
+              Remarkable rates.</p>
           </div>
           <div class="rewards-card-pill-sm rounded-pill my-4"></div>
         </div>
+        <div id="results-tabs" style="display: none;" class="tab-container">
+          <!-- Tab links -->
+          <div class="tab">
+            <button id="botResults" class="tab-btn active bxi-button bxi-button--md" onclick="changeTabs(event, 'bot-tab')">Bot Details</button>
+            <button id="fullResults" class="tab-btn bxi-button bxi-button--md" onclick="changeTabs(event, 'result-tab')">Full Results</button>
+          </div>
+          <!-- Tab content -->
+          <div id="bot-tab" class="tab-content active" style="display: block">
+            <div id="bot" class="container">
+              <div class="row">
+                <div class="col-sm border border-white">
+                  <h3>Bot Detection:</h3>
+                  <div id="bot.bot"></div>
+                </div>
+                <div class="col-sm border border-white">
+                  <h3>Suspicious Device Detection:</h3>
+                  <div id="bot.suspicious.device"></div>
+                </div>
+                <div class="col-sm border border-white">
+                  <h3>New Device Details:</h3>
+                  <div id="bot.new.device"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="result-tab" class="tab-content" style="display: none">
+            <div id="result" class="container">
+              <div class="row">
+                <div class="col-sm border border-white">
+                  <h3>Network Location:</h3>
+                  <div id="result.network.location"></div>
+                </div>
+                <div class="col-sm border border-white">
+                  <h3>Country:</h3>
+                  <div id="result.network.country"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm border border-white">
+                  <h3>Bot Detection:</h3>
+                  <div id="result.bot"></div>
+                </div>
+                <div class="col-sm border border-white">
+                  <h3>Suspicious Device Detection:</h3>
+                  <div id="result.suspicious.device"></div>
+                </div>
+                <div class="col-sm border border-white">
+                  <h3>New Device Details:</h3>
+                  <div id="result.new.device"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm border border-white">
+                  <h3>IP Details:</h3>
+                  <div id="result.ip.details"></div>
+                </div>
+                <div class="col-sm border border-white">
+                  <h3>Device details:</h3>
+                  <div id="result.device.details"></div>
+                </div>
+                <div class="col-sm border border-white">
+                  <h3>Impossible Travel:</h3>
+                  <div id="result.impossible.travel"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm border border-white">
+                  <h3>User-Based Risk Model:</h3>
+                  <div id="result.user.risk"></div>
+                </div>
+                <div class="col-sm border border-white">
+                  <h3>User Location Anomaly:</h3>
+                  <div id="result.user.location"></div>
+                </div>
+                <div class="col-sm border border-white">
+                  <h3>Anonymous Network:</h3>
+                  <div id="result.anonymous.network"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm border border-white">
+                  <h3>IP Risk:</h3>
+                  <div id="result.ip.risk"></div>
+                </div>
+                <div class="col-sm border border-white">
+                  <h3>IP Velocity by User:</h3>
+                  <div id="result.ip.velocity"></div>
+                </div>
+                <div class="col-sm border border-white">
+                  <h3>User Velocity by IP:</h3>
+                  <div id="result.user.velocity"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      </div>
+    </div>
   </section>
   <section class="bxi-bg-primary bxi-zi-2">
     <div class="container py-4 bxi-header-color">
@@ -300,7 +375,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="d-flex justify-content-center dialog-logo mb-4">
-            <img width="170" src="./images/logo.svg" alt="Logo">
+            <img width="170" src="images/logo.svg" alt="Logo">
           </div>
           <div id="modal-widgetbox"></div>
           <div id="modal-error" class="text-danger text-center d-none"></div>
@@ -308,7 +383,8 @@
       </div>
     </div>
   </div>
-  <script src="https://apps.pingone.com/signals/web-sdk/5.2.7/signals-sdk.js" defer></script>
+  <script src="js/signals-sdk.js" defer></script>
+  <script src="js/tabs.js"></script>
   <script type="text/javascript">
     document.getElementById('usernameForm').addEventListener('submit', async e => {
       e.preventDefault();
@@ -329,12 +405,26 @@
 
       const json = await result.json();
       document.getElementById('results-tabs').style.display = null;
-      document.getElementById('show').innerHTML = `<pre>${JSON.stringify(json.result.level, null, 2)}</pre>`;
-      document.getElementById('result').innerHTML = `<pre>${JSON.stringify(json.result, null, 2)}</pre>`;
-      document.getElementById('details').innerHTML = `<pre>${JSON.stringify(json.details, null, 2)}</pre>`;
-      document.getElementById('full-response').innerHTML = `<pre>${JSON.stringify(json, null, 2)}</pre>`;
-
-      document.getElementById('newRiskEvaluation').style.display = 'inline';
+      //Bot Tab
+      document.getElementById('bot.bot').innerHTML = `<pre>${JSON.stringify(json.details.botDetection, null, 2)}</pre>`;
+      document.getElementById('bot.suspicious.device').innerHTML = `<pre>${JSON.stringify(json.details.suspiciousDevice, null, 2)}</pre>`;
+      document.getElementById('bot.new.device').innerHTML = `<pre>${JSON.stringify(json.details.newDevice, null, 2)}</pre>`;
+      //Full Results Tab
+      document.getElementById('result.network.location').innerHTML = `${json.details.city}, ${json.details.state}`;
+      document.getElementById('result.network.country').innerHTML = `${json.details.country}`;
+      document.getElementById('result.bot').innerHTML = `<pre>${JSON.stringify(json.details.botDetection, null, 2)}</pre>`;
+      document.getElementById('result.suspicious.device').innerHTML = `<pre>${JSON.stringify(json.details.suspiciousDevice, null, 2)}</pre>`;
+      document.getElementById('result.new.device').innerHTML = `<pre>${JSON.stringify(json.details.newDevice, null, 2)}</pre>`;
+      document.getElementById('result.ip.details').innerHTML = `<pre>${JSON.stringify(json.details.ipAddressReputation, null, 2)}</pre>`;
+      document.getElementById('result.device.details').innerHTML = `<pre>${JSON.stringify(json.details.device, null, 2)}</pre>`;
+      document.getElementById('result.impossible.travel').innerHTML = `<pre>${JSON.stringify(json.details.impossibleTravel, null, 2)}</pre>`;
+      document.getElementById('result.user.risk').innerHTML = `<pre>${JSON.stringify(json.details.userBasedRiskBehavior, null, 2)}</pre>`;
+      document.getElementById('result.user.location').innerHTML = `<pre>${JSON.stringify(json.details.userLocationAnomaly, null, 2)}</pre>`;
+      document.getElementById('result.anonymous.network').innerHTML = `<pre>${JSON.stringify(json.details.anonymousNetwork, null, 2)}</pre>`;
+      document.getElementById('result.ip.risk').innerHTML = `<pre>${JSON.stringify(json.details.ipRisk, null, 2)}</pre>`;
+      document.getElementById('result.ip.velocity').innerHTML = `<pre>${JSON.stringify(json.details.ipVelocityByUser, null, 2)}</pre>`;
+      document.getElementById('result.user.velocity').innerHTML = `<pre>${JSON.stringify(json.details.userVelocityByIp, null, 2)}</pre>`;
+      // document.getElementById('result').innerHTML = `<pre>${JSON.stringify(json.details, null, 2)}</pre>`;
       document.getElementById('usernameForm').style.display = 'none';
       document.getElementById('shine').style.display = 'none';
     });
@@ -370,7 +460,7 @@
       });
     })
   </script>
-  <script src="js/tabs.js"></script>
+
 </body>
 
 </html>

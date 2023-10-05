@@ -7,10 +7,6 @@
     background-color: #fdfefe;
     -webkit-font-smoothing: antialiased;
   }
-  
-  #usernameAndPasswordForm{
-    max-width:400px;
-  }
 
   .styles_iconImage14__GNrdk {
     height: 14px;
@@ -3805,4 +3801,11 @@
   }
   .quill-snow_ql-container__13VQ_.quill-snow_ql-snow__193Gp {
     border: 1px solid #ccc;
+  }
+  .tab-content {
+    font-size:large;
+  }
+
+  #usernameAndPasswordForm{
+    max-width:400px;
   }
