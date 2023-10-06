@@ -47,13 +47,13 @@ puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-blink-feat
   //launch URL
   await p.goto(baseUrl)
   console.log("timeout started")
-  await p.waitForTimeout(3000)
+  await p.waitForTimeout(2000)
   console.log("timeout ended")
 
   //const cursor = myCursor.createCursor(p)
   await p.click('#registerButton');
   console.log("clicked registerButton");
-  await p.waitForTimeout(3000)
+  await p.waitForTimeout(2000)
 
   await p.waitForSelector('input[id="email"]');
 
@@ -77,18 +77,18 @@ puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-blink-feat
   console.log("put in password");
   await p.click('#submitBtn');
   console.log("clicked submitRegistration");
-  await p.waitForTimeout(6000)
+  await p.waitForTimeout(50000)
   const n = await p.$("#access-token")
 
-  if (n) {
-    const t = await (await n.getProperty('textContent')).jsonValue()
-    console.log(t);
-    console.log("SUCCESS WITH BOT")
-  } else {
-    const findResult = await p.$("[class='reactSingularKey_messageTextArea2 styles_messageTextArea2__35NkK ']")
-    const text = await (await findResult.getProperty('textContent')).jsonValue()
-    console.log(text)
-  }
+  // if (n) {
+  //   const t = await (await n.getProperty('textContent')).jsonValue()
+  //   console.log(t);
+  //   console.log("SUCCESS WITH BOT")
+  // } else {
+  //   const findResult = await p.$("[class='reactSingularKey_messageTextArea2 styles_messageTextArea2__35NkK ']")
+  //   const text = await (await findResult.getProperty('textContent')).jsonValue()
+  //   console.log(text)
+  // }
 
   await browser.close();
 })
