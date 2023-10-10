@@ -34,7 +34,7 @@ puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-blink-feat
 
   //Generate Email
   var randomnumber = Math.floor(Math.random() * (99999 - 100 + 1)) + 100;
-  var randomemail = "ggg" + randomnumber + "@example.com";
+  var randomemail = "GGG-" + randomnumber + "@bot.com";
   console.log(randomemail)
 
   //Select Registration Button
