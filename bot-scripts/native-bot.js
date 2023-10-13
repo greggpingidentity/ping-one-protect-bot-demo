@@ -1,5 +1,5 @@
 //PROTECT APP LOCATION
-const baseUrl = 'https://bx.finance:8080/'
+const baseUrl = 'https://localhost:8080/'
 
 //OS CONFIGURATION
 const browserExecutablePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'

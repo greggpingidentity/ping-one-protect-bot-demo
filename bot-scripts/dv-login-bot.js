@@ -1,5 +1,5 @@
 //PROTECT APP LOCATION
-const baseUrl = 'http://bx.airlines:8888'
+const baseUrl = 'http://localhost:8888'
 
 //OS CONFIGURATION
 const browserExecutablePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
